@@ -9,6 +9,7 @@ For further information regarding the sipgate REST API please visit https://api.
 ### Prerequisites
 
 - Node.js >= 10.15.3
+- VoIP client
 
 ### How To Use
 
@@ -36,7 +37,7 @@ const callee = 'YOUR_RECIPIENT_PHONE_NUMBER';
 The `deviceId` uniquely identifies the phone extension which establishes the phone connection,
 this variable is needed only when the `caller` is a phone number and not a device extension. Further explanation is given in the section [Web Phone Extensions](#web-phone-extensions). Nevertheless you can still use both as device extension, but in this case the `deviceId` will be ignored.
 
-Use `callee` and `callerId` to set the recipient phone number and the displayed caller number respectively. 
+Use `callee` and `callerId` to set the recipient phone number and the displayed caller number respectively.
 
 Run the application:
 
