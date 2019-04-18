@@ -131,7 +131,7 @@ Possible reasons are:
 | --------------------------------------------------------------------------------------------------------------------------------------------------- | :-------: |
 | bad request (e.g. request body fields are empty or only contain spaces, timestamp is invalid etc.)                                                  |    400    |
 | username and/or password are wrong                                                                                                                  |    401    |
-| your account balance is insufficient                                                                                                                |    402    |
+| insufficient account balance                                                                                                                        |    402    |
 | no permission to use specified Web Phone extension (e.g. user password must be reset in [web app](https://app.sipgate.com/login))                   |    403    |
 | wrong REST API endpoint                                                                                                                             |    404    |
 | wrong request method                                                                                                                                |    405    |
