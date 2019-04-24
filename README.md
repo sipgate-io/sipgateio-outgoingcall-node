@@ -67,7 +67,7 @@ const requestBody = {
 ```
 
 We use the axios package for request execution. The
-`requestOptions` object contains the keys `method`, `headers`, `auth`, `baseURL` and `data` (previously referred) which will be used by axios in order to send the desired http post request. Axios will use the credentials from `auth` to generate the required Basic Auth header as authorization header (for more information on Basic Auth see our [code example](https://github.com/sipgate/sipgateio-basicauth-node)).
+`requestOptions` object contains the keys `method`, `headers`, `auth`, `baseURL` and `data` (previously referred) which will be used by axios in order to send the desired http post request. Axios will use the credentials from `auth` to generate the required Basic Auth header as authorization header (for more information on Basic Auth see our [code example](https://github.com/sipgate-io/sipgateio-basicauth-node)).
 
 **Note:** The API expects request data in JSON format. Thus the `Content-Type` header is set to: `application/json`.
 
