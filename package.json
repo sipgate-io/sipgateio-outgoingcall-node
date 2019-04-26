@@ -1,7 +1,7 @@
 {
-  "name": "sipgateio-node-templates",
+  "name": "sipgateio-outgoingcall-node",
   "version": "1.0.0",
-  "description": "Template for sipgate.io example applications",
+  "description": "A demonstration of how to make an outgoing call using the sipgate REST-API",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -11,32 +11,7 @@
   "engines": {
     "node": "10.15.3"
   },
-  "license": "MIT",
-  "devDependencies": {
-    "eslint": "5.3.0",
-    "eslint-config-airbnb": "17.1.0",
-    "eslint-config-prettier": "4.1.0",
-    "eslint-plugin-import": "2.16.0",
-    "eslint-plugin-jsx-a11y": "6.2.1",
-    "eslint-plugin-prettier": "3.0.1",
-    "eslint-plugin-react": "7.12.4",
-    "husky": "1.3.1",
-    "lint-staged": "8.1.5",
-    "prettier": "1.16.4"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.js": [
-      "prettier --write",
-      "eslint",
-      "git add"
-    ]
-  },
+  "license": "Unlicense",
   "dependencies": {
     "axios": "^0.18.0"
   }
