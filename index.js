@@ -2,8 +2,8 @@ const axios = require('axios');
 
 const baseURL = 'https://api.sipgate.com/v2';
 
-const username = 'YOUR_SIPGATE_EMAIL';
-const password = 'YOUR_SIPGATE_PASSWORD';
+const tokenId = 'YOUR_SIPGATE_TOKEN_ID';
+const token = 'YOUR_SIPGATE_TOKEN';
 
 const deviceId = 'YOUR_SIPGATE_DEVICE_EXTENSION';
 const caller = 'DIALING_DEVICE';
@@ -25,8 +25,8 @@ const requestOptions = {
 		'Content-Type': 'application/json',
 	},
 	auth: {
-		username,
-		password,
+		username: tokenId,
+		password: token,
 	},
 	data: requestBody,
 };

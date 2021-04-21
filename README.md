@@ -24,14 +24,14 @@ $ npm install
 In order to run the code you must set the following variables in [index.js](./index.js):
 
 ```javascript
-const username = 'YOUR_SIPGATE_EMAIL';
-const password = 'YOUR_SIPGATE_PASSWORD';
+const tokenId = "YOUR_SIPGATE_TOKEN_ID";
+const token = "YOUR_SIPGATE_TOKEN";
 
-const deviceId = 'YOUR_SIPGATE_DEVICE_EXTENSION';
-const caller = 'DIALING_DEVICE';
+const deviceId = "YOUR_SIPGATE_DEVICE_EXTENSION";
+const caller = "DIALING_DEVICE";
 
-const callerId = 'DISPLAYED_CALLER_NUMBER';
-const callee = 'YOUR_RECIPIENT_PHONE_NUMBER';
+const callerId = "DISPLAYED_CALLER_NUMBER";
+const callee = "YOUR_RECIPIENT_PHONE_NUMBER";
 ```
 
 The `deviceId` uniquely identifies the phone extension which establishes the phone connection,
@@ -52,17 +52,17 @@ The following explanations lay out how the code example works. There is no need 
 The sipgate REST API is available under the following base URL:
 
 ```javascript
-const baseURL = 'https://api.sipgate.com/v2';
+const baseURL = "https://api.sipgate.com/v2";
 ```
 
 The request body contains the fields: `deviceId`, `caller`, `callee` and `callerId` as specified above.
 
 ```javascript
 const requestBody = {
-	deviceId,
-	callerId,
-	caller,
-	callee,
+  deviceId,
+  callerId,
+  caller,
+  callee,
 };
 ```
 
@@ -73,29 +73,30 @@ We use the axios package for request execution. The
 
 ```javascript
 const requestOptions = {
-	method: 'POST',
-	headers: {
-		Accept: 'application/json',
-		'Content-Type': 'application/json',
-	},
-	auth: {
-		username,
-		password,
-	},
-	data: requestBody,
+  method: "POST",
+  headers: {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  },
+  auth: {
+    username: tokenId,
+    password: token,
+  },
+  data: requestBody,
 };
 ```
-> If OAuth should be used for `Authorization` instead of Basic Auth we do not suply the auth object in the request options. Instead we set the authorization header to `Bearer` followed by a space and the access token: ```Authorization: `Bearer ${accessToken}`,```. For an example application interacting with the sipgate API using OAuth see our [sipgate.io Node.js OAuth example](https://github.com/sipgate-io/sipgateio-oauth-node).
+
+> If OAuth should be used for `Authorization` instead of Basic Auth we do not suply the auth object in the request options. Instead we set the authorization header to `Bearer` followed by a space and the access token: `` Authorization: `Bearer ${accessToken}`, ``. For an example application interacting with the sipgate API using OAuth see our [sipgate.io Node.js OAuth example](https://github.com/sipgate-io/sipgateio-oauth-node).
 
 The `axios` instance takes the request URL and `requestOptions` as arguments and process the desired http request. The request URL consists of the base URL defined above and the endpoint `/sessions/calls`.
 
 ```javascript
 axios(`${baseURL}/sessions/calls`, requestOptions)
-	.then(response => {
-		console.log(`Status: ${response.status}`);
-		console.log(`Body: ${JSON.stringify(response.data)}`);
-	})
-	.catch(error => console.log('Error: ', error.message));
+  .then((response) => {
+    console.log(`Status: ${response.status}`);
+    console.log(`Body: ${JSON.stringify(response.data)}`);
+  })
+  .catch((error) => console.log("Error: ", error.message));
 ```
 
 ### Web Phone Extensions
@@ -128,15 +129,15 @@ Possible reasons are:
 
 #### HTTP Errors
 
-| reason                                                                                                                                              | errorcode |
-| --------------------------------------------------------------------------------------------------------------------------------------------------- | :-------: |
-| bad request (e.g. request body fields are empty or only contain spaces, timestamp is invalid etc.)                                                  |    400    |
-| username and/or password are wrong                                                                                                                  |    401    |
-| insufficient account balance                                                                                                                        |    402    |
-| no permission to use specified Web Phone extension (e.g. user password must be reset in [web app](https://app.sipgate.com/login))                   |    403    |
-| wrong REST API endpoint                                                                                                                             |    404    |
-| wrong request method                                                                                                                                |    405    |
-| wrong or missing `Content-Type` header with `application/json`                                                                                      |    415    |
+| reason                                                                                                                            | errorcode |
+| --------------------------------------------------------------------------------------------------------------------------------- | :-------: |
+| bad request (e.g. request body fields are empty or only contain spaces, timestamp is invalid etc.)                                |    400    |
+| tokenId and/or token are wrong                                                                                                    |    401    |
+| insufficient account balance                                                                                                      |    402    |
+| no permission to use specified Web Phone extension (e.g. user password must be reset in [web app](https://app.sipgate.com/login)) |    403    |
+| wrong REST API endpoint                                                                                                           |    404    |
+| wrong request method                                                                                                              |    405    |
+| wrong or missing `Content-Type` header with `application/json`                                                                    |    415    |
 
 ### Related
 
