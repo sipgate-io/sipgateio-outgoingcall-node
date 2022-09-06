@@ -21,18 +21,7 @@ Installing dependencies:
 $ npm install
 ```
 
-In order to run the code you must set the following variables in [index.js](./index.js):
-
-```javascript
-const tokenId = "YOUR_SIPGATE_TOKEN_ID";
-const token = "YOUR_SIPGATE_TOKEN";
-
-const deviceId = "YOUR_SIPGATE_DEVICE_EXTENSION";
-const caller = "DIALING_DEVICE";
-
-const callerId = "DISPLAYED_CALLER_NUMBER";
-const callee = "YOUR_RECIPIENT_PHONE_NUMBER";
-```
+ Create the `.env` file by copying the `.env.example`. Set the values according to the comment above each variable.
 
 The token should have the following scopes:
 
