@@ -2,6 +2,8 @@
 
 # sipgate.io node outgoing call example
 
+This example will initiate an outgoing call by first calling `caller` (your sipgate phone number or extension) and then calling `callee`.
+
 In order to demonstrate how to initiate an outgoing call, we queried the `/sessions/calls` endpoint of the sipgate REST API.
 
 For further information regarding the sipgate REST API please visit https://api.sipgate.com/v2/doc
