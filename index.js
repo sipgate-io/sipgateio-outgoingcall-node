@@ -1,13 +1,13 @@
 const axios = require('axios');
 
 require('dotenv').config()
-const {baseURL, tokenId, token, deviceId, callerId, caller, callee} = process.env
+const {BASE_URL, TOKEN_ID, TOKEN, DEVICE_ID, CALLER_ID, CALLER, CALLEE} = process.env
 
 const requestBody = {
-	deviceId,
-	callerId,
-	caller,
-	callee,
+	DEVICE_ID,
+	CALLER_ID,
+	CALLER,
+	CALLEE,
 };
 
 const requestOptions = {
@@ -17,13 +17,13 @@ const requestOptions = {
 		'Content-Type': 'application/json',
 	},
 	auth: {
-		username: tokenId,
-		password: token,
+		username: TOKEN_ID,
+		password: TOKEN,
 	},
 	data: requestBody,
 };
 
-axios(`${baseURL}/sessions/calls`, requestOptions)
+axios(`${BASE_URL}/sessions/calls`, requestOptions)
 	.then(response => {
 		console.log(`Status: ${response.status}`);
 		console.log(`Body: ${JSON.stringify(response.data)}`);
