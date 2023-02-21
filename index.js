@@ -4,10 +4,10 @@ require('dotenv').config()
 const {BASE_URL, TOKEN_ID, TOKEN, DEVICE_ID, CALLER_ID, CALLER, CALLEE} = process.env
 
 const requestBody = {
-	DEVICE_ID,
-	CALLER_ID,
-	CALLER,
-	CALLEE,
+	deviceId: DEVICE_ID,
+	callerId: CALLER_ID,
+	caller: CALLER,
+	callee: CALLEE,
 };
 
 const requestOptions = {
