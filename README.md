@@ -8,12 +8,12 @@ In order to demonstrate how to initiate an outgoing call, we queried the `/sessi
 
 For further information regarding the sipgate REST API please visit https://api.sipgate.com/v2/doc
 
-### Prerequisites
+## Prerequisites
 
 - Node.js >= 10.15.3
 - VoIP client
 
-### How To Use
+## How To Use
 
 Navigate to the project's root directory.
 
@@ -42,7 +42,7 @@ Run the application:
 $ npm run start
 ```
 
-##### How It Works
+## How It Works
 
 The following explanations lay out how the code example works. There is no need for you to change anything unless you want to do something different.
 
@@ -96,7 +96,7 @@ axios(`${baseURL}/sessions/calls`, requestOptions)
   .catch((error) => console.log("Error: ", error.message));
 ```
 
-### Web Phone Extensions
+## Web Phone Extensions
 
 A Web Phone extension consists of one letter followed by a number (e.g. 'e0'). The sipgate API uses the concept of Web Phone extensions to identify devices within your account that are enabled to initiate calls.
 
@@ -115,16 +115,16 @@ You can find out what your extension is as follows:
 3. Click on the device from which you want the Web Phone extension (`deviceId`)
 4. The URL of the page this takes you to should have the form `https://app.sipgate.com/{...}/devices/{deviceId}` where `{deviceId}` is your Web Phone extension
 
-### Common Issues
+## Common Issues
 
-#### API returns 200 OK but no call gets initiated
+### API returns 200 OK but no call gets initiated
 
 Possible reasons are:
 
 - your phone is not connected
 - `caller` does not match your phones Web Phone extension
 
-#### HTTP Errors
+### HTTP Errors
 
 | reason                                                                                                                            | errorcode |
 | --------------------------------------------------------------------------------------------------------------------------------- | :-------: |
@@ -136,20 +136,20 @@ Possible reasons are:
 | wrong request method                                                                                                              |    405    |
 | wrong or missing `Content-Type` header with `application/json`                                                                    |    415    |
 
-### Related
+## Related
 
 - [axios documentation](https://www.npmjs.com/package/axios)
 
-### Contact Us
+## Contact Us
 
 Please let us know how we can improve this example.
 If you have a specific feature request or found a bug, please use **Issues** or fork this repository and send a **pull request** with your improvements.
 
-### License
+## License
 
 This project is licensed under **The Unlicense** (see [LICENSE file](./LICENSE)).
 
-### External Libraries
+## External Libraries
 
 This code uses the following external libraries
 
